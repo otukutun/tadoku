@@ -1,0 +1,12 @@
+{
+    "require": {
+        "cakephp/debug_kit": "2.2.*@dev",
+        "cakedc/migrations": "dev-develop",
+        "slywalker/boost_cake": "dev-master",
+        "cakedc/search": "dev-develop",
+        "twitter/bootstrap": "dev-3.0.0-wip"
+    },
+    "config": {
+        "vendor-dir": "Vendor"
+    }
+}

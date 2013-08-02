@@ -1,0 +1,6 @@
+myapp/Plugin/*
+myapp/tmp/*
+myapp/composer.lock
+myapp/Vendor/*
+Vendor/*
+composer.lock
