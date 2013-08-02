@@ -29,6 +29,7 @@ CakePlugin::load('DebugKit');
 CakePlugin::load('Migrations');
 CakePlugin::load('Search');
 CakePlugin::load('BoostCake');
+CakePlugin::load('Opauth', array('routes' => true, 'bootstrap' => true));
 //composerのautoloadを読み込み
 /*require APP . '/Vendor/autoload.php';
 
