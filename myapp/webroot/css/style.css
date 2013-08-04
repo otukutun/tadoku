@@ -1,0 +1,48 @@
+/* 09.旗 */
+#heading{
+    position:relative;
+    margin:0 20px 0 20px;
+    padding:10px 15px;
+    font:bold 22px/1.2 Arial, Helvetica, sans-serif;
+    color:#fff;
+    background:#c33;
+}
+#heading:before{
+    content:"<";
+    position:absolute;
+    top:middle;
+    left:-10px;
+    width:0;
+    height:0;
+    font-size:25px;
+    line-height:1.0;
+    color:#c96;
+}
+#heading:after{
+    content:" ";
+    position:absolute;
+    top:-2px;
+    left:-10px;
+    width:0;
+    height:130%;
+    border:#600 solid 2px;
+    border-radius:2px;
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+
+}
+#user_welcome {
+    font-size: 30px;
+    font-weight: 30;
+}
+#total_words {
+    color: red;
+    font-size: 200px;
+    font-weight: 700;
+}
+
+.well {
+    backgound-color: white;
+}

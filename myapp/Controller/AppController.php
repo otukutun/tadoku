@@ -32,7 +32,8 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $components = array('Session','Auth'
+    public $layout = 'bootstrap3';
+    public $components = array('Auth'
         => array(
             'authenticate' => array(
                 'all' => array(
@@ -42,11 +43,20 @@ class AppController extends Controller {
                 ),
                 'Form',
             ),
+            'flash' => array(
+                'element' => 'alert',
+                'key' => 'auth',
+                'params' => array(
+                    'plugin' => 'BoostCake',
+                    'class' => 'alert-error'
+                )
+            ),
             'loginAction' => array('controller' => 'users','action' => 'index'),
-            'loginRedirect' => array('controller' => 'users','action' => 'mypage'),
-            'logoutRedirect' => array('controller' => 'users','action' => 'index'),
-        ),
-        'DebugKit.Toolbar');
+                'loginRedirect' => array('controller' => 'users','action' => 'mypage'),
+                'logoutRedirect' => array('controller' => 'users','action' => 'index'),
+            ),
+            'Session',
+            'DebugKit.Toolbar');
     public $helpers = array(
         'Session',
         'Html' => array('className' => 'BoostCake.BoostCakeHtml'),

@@ -30,10 +30,10 @@ class UsersController extends AppController {
     }
 
     public function index() {
-        debug($this->Session->read('test2'));
     }
 
     public function logout() {
+        $this->Session->delete('user_id');
         $this->redirect($this->Auth->logout());
     }
 
