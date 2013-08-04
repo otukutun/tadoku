@@ -25,6 +25,7 @@ class UsersController extends AppController {
     public function mypage() {
         
         $user = $this->User->find('first',array('conditions' => array('id' => $this->Session->read('user_id')),'fields' => array('total_words','username')));
+        $this->set('digits',$this->User->count_digits($user['User']['total_words']));
         $this->set('user',$user);
 
     }

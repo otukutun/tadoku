@@ -165,4 +165,8 @@ class User extends AppModel {
         return $value = ($this->save($user)) ? true : false;
     }
 
+    public function count_digits($total_words) {
+        return strlen($total_words);
+    }
+
 }
