@@ -32,11 +32,31 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $components = array('DebugKit.Toolbar');
+    public $components = array('Session','Auth'
+        => array(
+            'authenticate' => array(
+                'all' => array(
+                    'userModel' => 'User',
+                    'username' => 'token',
+                    'password' => 'secret_token',
+                ),
+                'Form',
+            ),
+            'loginAction' => array('controller' => 'users','action' => 'index'),
+            'loginRedirect' => array('controller' => 'users','action' => 'mypage'),
+            'logoutRedirect' => array('controller' => 'users','action' => 'index'),
+        ),
+        'DebugKit.Toolbar');
     public $helpers = array(
         'Session',
         'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
         'Form' => array('className' => 'BoostCake.BoostCakeForm'),
         'Paginator' => array('className' => 'BoostCake.BoostCakePaginator'),
     );
+
+    public function beforeFilter() {
+        //$this->Auth->allow(array('opauth-complete','users/index'));
+
+
+    }
 }

@@ -30,7 +30,7 @@ class Book extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'maxlength' => array(
-				'rule' => array('maxlength'),
+				'rule' => array('maxlength',50),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -101,5 +101,13 @@ class Book extends AppModel {
 			'fields' => '',
 			'order' => ''
 		)
-	);
+    );
+
+    public function calc_total_words($words_list) {
+        $sum = 0;
+        foreach ($words_list as $word ) {
+            $sum += $word['Book']['words'];
+        }
+        return $sum;
+    }
 }

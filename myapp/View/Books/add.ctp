@@ -6,7 +6,8 @@
 		echo $this->Form->input('name');
 		echo $this->Form->input('words');
 		echo $this->Form->input('thoughts');
-		echo $this->Form->input('user_id');
+		//echo $this->Form->input('user_id');
+		echo $this->Form->hidden('user_id',array('value' => $user_id));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

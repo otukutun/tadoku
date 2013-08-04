@@ -5,7 +5,8 @@
         "slywalker/boost_cake": "dev-master",
         "cakedc/search": "dev-develop",
         "twitter/bootstrap": "dev-3.0.0-wip",
-        "uzyn/cakephp-opauth": "*"
+        "uzyn/cakephp-opauth": "*",
+        "opauth/twitter": "dev-master"
     },
     "config": {
         "vendor-dir": "Vendor"

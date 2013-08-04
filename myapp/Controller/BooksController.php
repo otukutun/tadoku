@@ -12,6 +12,8 @@ class BooksController extends AppController {
  *
  * @return void
  */
+    public $uses = array('User','Book');
+    //public $name = 'Book';
 	public function index() {
 		$this->Book->recursive = 0;
 		$this->set('books', $this->paginate());
@@ -38,17 +40,20 @@ class BooksController extends AppController {
  * @return void
  */
 	public function add() {
+        $user_id = $this->Session->read('user_id');
 		if ($this->request->is('post')) {
 			$this->Book->create();
-			if ($this->Book->save($this->request->data)) {
-				$this->Session->setFlash(__('The book has been saved'));
-				$this->redirect(array('action' => 'index'));
+            if ($this->Book->save($this->request->data)) {
+                $words_list = $this->Book->find('all',array('conditions' => array('user_id' => $user_id),'fields' => array('words')));
+                $sum = $this->Book->calc_total_words($words_list);
+                $this->User->update_total_words($user_id,$sum);
+                $this->Session->setFlash(__('The book has been saved'));
+				$this->redirect(array('controller' => 'users','action' => 'mypage'));
 			} else {
 				$this->Session->setFlash(__('The book could not be saved. Please, try again.'));
 			}
 		}
-		$users = $this->Book->User->find('list');
-		$this->set(compact('users'));
+        $this->set('user_id',$user_id);
 	}
 
 /**
@@ -58,7 +63,7 @@ class BooksController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+/*	public function edit($id = null) {
 		if (!$this->Book->exists($id)) {
 			throw new NotFoundException(__('Invalid book'));
 		}
@@ -76,6 +81,7 @@ class BooksController extends AppController {
 		$users = $this->Book->User->find('list');
 		$this->set(compact('users'));
 	}
+ */
 
 /**
  * delete method
@@ -84,7 +90,7 @@ class BooksController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+/*	public function delete($id = null) {
 		$this->Book->id = $id;
 		if (!$this->Book->exists()) {
 			throw new NotFoundException(__('Invalid book'));
@@ -96,5 +102,5 @@ class BooksController extends AppController {
 		}
 		$this->Session->setFlash(__('Book was not deleted'));
 		$this->redirect(array('action' => 'index'));
-	}
+}*/
 }
