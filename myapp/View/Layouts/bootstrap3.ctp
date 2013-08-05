@@ -8,7 +8,9 @@
 	</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<meta name="author" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 	<!-- Le styles -->
     <link href="//slywalker.github.io/cakephp-plugin-boost_cake/bootstrap3/css/bootstrap.css" rel="stylesheet">
