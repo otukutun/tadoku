@@ -21,7 +21,7 @@ class DATABASE_CONFIG {
 		'encoding' => 'utf8'
     );
     public function __construct() {
-        $env = $_SERVER['WEB_APP_ENV'];
+        $env = env('WEB_APP_ENV');
         if ($env == 'production') {
             $this->default = $this->production;
         } else {
