@@ -23,7 +23,7 @@ class DATABASE_CONFIG {
     public function __construct() {
         $env = Configure::read('database');
         if (!empty($this->{$env})) {
-            $this->default = $this->{$connection};
+            $this->default = $this->{$env};
         }
     }
 }
