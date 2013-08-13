@@ -33,7 +33,11 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-if (env('WEB_APP_ENV') == 'production') {
+//dbの設定
+Configure::write('database','production');
+
+//debugのレベル設定
+if (FULL_BASE_URL == 'http://www.tadoku.me') {
     Configure::write('debug', 0);
 } else {
     Configure::write('debug', 2);

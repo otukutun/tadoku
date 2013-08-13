@@ -21,8 +21,8 @@ class DATABASE_CONFIG {
 		'encoding' => 'utf8'
     );
     public function __construct() {
-        $env = env('WEB_APP_ENV');
-        if ($env == 'production') {
+        $env = FULL_BASE_URL;
+        if ($env == 'http://www.tadoku.me') {
             $this->default = $this->production;
         } else {
             $this->default = $this->develop;
