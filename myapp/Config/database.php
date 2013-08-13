@@ -21,11 +21,9 @@ class DATABASE_CONFIG {
 		'encoding' => 'utf8'
     );
     public function __construct() {
-        $env = FULL_BASE_URL;
-        if ($env == 'http://www.tadoku.me') {
-            $this->default = $this->production;
-        } else {
-            $this->default = $this->develop;
+        $env = Configure::read('database');
+        if (!empty($this->{$env})) {
+            $this->default = $this->{$connection};
         }
     }
 }

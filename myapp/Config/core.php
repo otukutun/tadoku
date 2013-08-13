@@ -37,7 +37,7 @@
 Configure::write('database','production');
 
 //debugのレベル設定
-if (FULL_BASE_URL == 'http://www.tadoku.me') {
+if (env('WEB_APP_ENV') == 'production') {
     Configure::write('debug', 0);
 } else {
     Configure::write('debug', 2);
