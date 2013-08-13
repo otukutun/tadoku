@@ -35,6 +35,8 @@ Configure::write('Opauth.Strategy.Twitter', array(
        'key' => 'UDYf4nVsPzQExIYSuEuS6A',
           'secret' => 'cV5nedPQKwy6wmaG4njaevhCPf4sNjEA4xlh7aCCHnM'
       ));
+
+
 //composerのautoloadを読み込み
 /*require APP . '/Vendor/autoload.php';
 
